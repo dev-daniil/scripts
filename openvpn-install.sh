@@ -56,7 +56,7 @@ YdEIqUuyyOP7uWrat2DX9GgdT0Kj3jlN9K5W7edjcrsZCwenyO4KbXCeAvzhzffi
 7MA0BM0oNC9hkXL+nOmFg/+OTxIy7vKBg8P+OxtMb61zO7X8vC7CIAXFjvGDfRaD
 ssbzSibBsu/6iGtCOGEoXJf//////////wIBAg==
 -----END DH PARAMETERS-----" > /etc/openvpn/server/dh.pem
-echo "local SERVER_ADDRESS
+echo 'local SERVER_ADDRESS
 port 1194
 proto udp
 dev tun
@@ -84,7 +84,7 @@ persist-tun
 verb 3
 crl-verify crl.pem
 explicit-exit-notify
-topology subnet" > /etc/openvpn/server/server.conf
+topology subnet' > /etc/openvpn/server/server.conf
 {
 echo "client
 dev tun
