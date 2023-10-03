@@ -9,7 +9,7 @@ echo "set_var EASYRSA_REQ_COUNTRY    "US"
       set_var EASYRSA_REQ_CITY       "San Francisco"
       set_var EASYRSA_REQ_ORG        "Copyleft Certificate Co"
       set_var EASYRSA_REQ_EMAIL      "me@example.net"
-      set_var EASYRSA_REQ_OU         "My Organizational Unit"" > ~/easy-rsa-3.0.1/easyrsa3/vars
+      set_var EASYRSA_REQ_OU         "My Organizational Unit"" > ~/EasyRSA-3.1.2/easyrsa3/vars
 cd ~/EasyRSA-3.1.2/easyrsa3 && rm -rf ./pki && ./easyrsa --batch init-pki && ./easyrsa --batch build-ca nopass && ./easyrsa --batch --days=3650 build-server-full server nopass && ./easyrsa --batch --days=3650 build-client-full client nopass && ./easyrsa --days=3650 --batch gen-crl
 rm -rf /etc/openvpn/server
 mkdir /etc/openvpn/server
