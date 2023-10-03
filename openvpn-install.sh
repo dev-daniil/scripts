@@ -113,6 +113,15 @@ echo "<tls-crypt>"
 sed -ne '/BEGIN OpenVPN Static key/,$ p' /etc/openvpn/server/tc.key
 echo "</tls-crypt>"
 } > ~/client.ovpn
+
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to SERVER_ADDRESS
+iptables -I INPUT -p udp --dport 1194 -j ACCEPT
+iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -t nat -D POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to SERVER_ADDRESS
+iptables -D INPUT -p udp --dport 1194 -j ACCEPT
+iptables -D FORWARD -s 10.8.0.0/24 -j ACCEPT
+iptables -D FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
 systemctl stop openvpn-server@server
 systemctl disable openvpn-server@server
 systemctl enable openvpn-server@server
