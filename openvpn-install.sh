@@ -2,7 +2,8 @@ sudo apt update
 sudo apt install -y openvpn
 sudo apt-get -y install openvpn-auth-radius
 mkdir ~/easy-rsa
-wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.2/EasyRSA-3.1.2.tgz | tar xz -C
+wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.2/EasyRSA-3.1.2.tgz
+tar zxvf EasyRSA-3.1.2.tgz
 echo "set_var EASYRSA_REQ_COUNTRY    "US"
       set_var EASYRSA_REQ_PROVINCE   "California"
       set_var EASYRSA_REQ_CITY       "San Francisco"
