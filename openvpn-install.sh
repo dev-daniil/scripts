@@ -9,17 +9,17 @@ echo "set_var EASYRSA_REQ_COUNTRY    "US"
       set_var EASYRSA_REQ_CITY       "San Francisco"
       set_var EASYRSA_REQ_ORG        "Copyleft Certificate Co"
       set_var EASYRSA_REQ_EMAIL      "me@example.net"
-      set_var EASYRSA_REQ_OU         "My Organizational Unit"" > ~/EasyRSA-3.1.2/easyrsa3/vars
-cd ~/EasyRSA-3.1.2/easyrsa3 && rm -rf ./pki && ./easyrsa --batch init-pki && ./easyrsa --batch build-ca nopass && ./easyrsa --batch --days=3650 build-server-full server nopass && ./easyrsa --batch --days=3650 build-client-full client nopass && ./easyrsa --days=3650 --batch gen-crl
+      set_var EASYRSA_REQ_OU         "My Organizational Unit"" > ~/EasyRSA-3.1.2/vars
+cd ~/EasyRSA-3.1.2 && rm -rf ./pki && ./easyrsa --batch init-pki && ./easyrsa --batch build-ca nopass && ./easyrsa --batch --days=3650 build-server-full server nopass && ./easyrsa --batch --days=3650 build-client-full client nopass && ./easyrsa --days=3650 --batch gen-crl
 rm -rf /etc/openvpn/server
 mkdir /etc/openvpn/server
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/ca.crt /etc/openvpn/server/ca.crt
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/crl.pem /etc/openvpn/server/crl.pem
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/issued/server.crt /etc/openvpn/server/server.crt
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/issued/client.crt /etc/openvpn/server/client.crt
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/private/ca.key /etc/openvpn/server/ca.key
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/private/server.key /etc/openvpn/server/server.key
-cp ~/EasyRSA-3.1.2/easyrsa3/pki/private/client.key /etc/openvpn/server/client.key
+cp ~/EasyRSA-3.1.2/pki/ca.crt /etc/openvpn/server/ca.crt
+cp ~/EasyRSA-3.1.2/pki/crl.pem /etc/openvpn/server/crl.pem
+cp ~/EasyRSA-3.1.2/pki/issued/server.crt /etc/openvpn/server/server.crt
+cp ~/EasyRSA-3.1.2/pki/issued/client.crt /etc/openvpn/server/client.crt
+cp ~/EasyRSA-3.1.2/pki/private/ca.key /etc/openvpn/server/ca.key
+cp ~/EasyRSA-3.1.2/pki/private/server.key /etc/openvpn/server/server.key
+cp ~/EasyRSA-3.1.2/pki/private/client.key /etc/openvpn/server/client.key
 rm ~/EasyRSA-3.1.2.tgz
 echo "
             NAS-Identifier=OpenVpn
