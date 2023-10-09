@@ -2,11 +2,11 @@ sudo apt-get install -y shadowsocks-libev
 rm /etc/shadowsocks-libev/config.json
 echo '{
     "server":"185.170.212.166",
-    "server_port":12212,
+    "server_port":SS_PORT,
     "local_port":1080,
-    "password":"pass",
+    "password":"SS_PASS",
     "timeout":60,
-    "method":"chacha20-ietf-poly1305"
+    "method":"aes-256-gcm"
 }' > /etc/shadowsocks-libev/config.json
 
 systemctl restart shadowsocks-libev
