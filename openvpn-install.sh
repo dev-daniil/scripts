@@ -83,6 +83,8 @@ persist-key
 persist-tun
 verb 3
 crl-verify crl.pem
+duplicate-cn
+management 1122
 explicit-exit-notify
 topology subnet' > /etc/openvpn/server/server.conf
 {
