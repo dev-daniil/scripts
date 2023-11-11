@@ -61,7 +61,9 @@ port 1194
 proto udp
 dev tun
 ca ca.crt
-log-append /var/log/openvpn.log
+log-append /var/log/openvpn/openvpn.log
+status /var/log/openvpn/status.log 1
+status-version 1
 cert server.crt
 key server.key
 dh dh.pem
