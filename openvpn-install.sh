@@ -124,6 +124,8 @@ iptables -I FORWARD -i tun+ -o eth0 -m state --state RELATED,ESTABLISHED -j ACCE
 iptables -I FORWARD -i eth0 -o tun+ -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 iptables -A OUTPUT -o tun+ -j ACCEPT
+iptables -A INPUT -p tcp --dport 1122 -s BACKEND_ADDRESS -j ACCEPT
+iptables -A INPUT -p tcp --dport 1122 -j DROP
 
 iptables-save
 
